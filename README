@@ -14,7 +14,7 @@ Selenium tests (pytest) – a few UI flows (happy path + HTML5-blocked case + on
 
 Robot Framework (optional) – readable acceptance scenarios
 
-tools/run_tests_all.ps1 – one command to run everything locally
+run_tests_all.ps1 – one command to run everything locally and generate an allure report with all tests.
 
 How it works (super short)
 Browser does HTML5 checks (required, type=email, min=1).
