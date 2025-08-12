@@ -38,3 +38,10 @@ Browser (form.html)
                            FastAPI (app.py) → validations.py
                              ├─ OK  → 200 → “Form submitted successfully”
                              └─ ERR → 400 → “Invalid …” (from validator)
+
+How to use the repo :
+You can execute the run_tests_all.ps1 script, this will :
+- starts the FastAPI backend on http://127.0.0.1:8000/
+- runs unit (pytest), Selenium (pytest), and Robot tests
+- writes results into allure-results/
+- serves the Allure report in your browser
