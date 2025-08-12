@@ -1,0 +1,37 @@
+QA Form Validation — Learning Project
+Why this exists: I built this as a learning project to practice a clean test pyramid and a tiny end-to-end flow. It’s intentionally small and simple.
+
+What’s inside
+logic/validations.py – Python rules for name, email, age (single source of truth)
+
+Unit tests (pytest) – fast checks of those rules
+
+form.html – simple HTML5 form with a tiny JS fetch
+
+FastAPI backend (app.py) – serves the form and calls the Python validators
+
+Selenium tests (pytest) – a few UI flows (happy path + HTML5-blocked case + one backend-rejected case)
+
+Robot Framework (optional) – readable acceptance scenarios
+
+tools/run_tests_all.ps1 – one command to run everything locally
+
+How it works (super short)
+Browser does HTML5 checks (required, type=email, min=1).
+If invalid → no POST; native browser hint shows.
+
+If HTML5 passes → JS POSTs to /submit.
+FastAPI calls validations.py and returns:
+
+200 → green “submitted successfully”
+
+400 → red error message from the validator
+
+Example that often passes HTML5 but fails backend: email = "akram@domain"
+
+
+# Install once
+py -m pip install fastapi uvicorn pydantic pytest selenium webdriver-manager robotframework allure-robotframework
+
+# One-liner to run everything (starts server, runs tests, opens Allure)
+.\tools\run_tests_all.ps1

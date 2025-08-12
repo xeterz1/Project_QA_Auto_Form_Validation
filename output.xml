@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.4 on win32)" generated="2025-08-12T11:27:54.881733" rpa="false" schemaversion="5">
+<suite id="s1" name="Form Tests" source="D:\QA\ProjectA\robot_tests\form_tests.robot">
+<test id="s1-t1" name="Happy Path – user sees success message" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:55.257374" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-12T11:27:55.257374" elapsed="1.729286"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:56.990176" level="INFO">Typing text 'Akram' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>Akram</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:56.989112" elapsed="0.083746"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:57.073861" level="INFO">Typing text 'akram@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>akram@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.073861" elapsed="0.076000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:57.152346" level="INFO">Typing text '25' into text field 'id=age'.</msg>
+<arg>id=age</arg>
+<arg>25</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.151343" elapsed="0.061722"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:57.215406" level="INFO">Typing text 'Hello' into text field 'id=message'.</msg>
+<arg>id=message</arg>
+<arg>Hello</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.214208" elapsed="0.063733"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:57.279087" level="INFO">Clicking button 'css:button[type="submit"]'.</msg>
+<arg>css:button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.279087" elapsed="0.068203"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=formMessage</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.348674" elapsed="0.020115"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:57.385509" level="INFO">Element 'id=formMessage' contains text 'Form submitted successfully'.</msg>
+<arg>id=formMessage</arg>
+<arg>Form submitted successfully</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.368789" elapsed="0.016720"/>
+</kw>
+<tag>acceptance</tag>
+<tag>happy</tag>
+<status status="PASS" start="2025-08-12T11:27:55.255110" elapsed="2.131404"/>
+</test>
+<test id="s1-t2" name="Age Above 120 – backend rejects with message" line="21">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:57.391016" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8000/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-12T11:27:57.391016" elapsed="1.739463"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:59.132039" level="INFO">Typing text 'Akram' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>Akram</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.132039" elapsed="0.089441"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:59.223672" level="INFO">Typing text 'akram@example.com' into text field 'id=email'.</msg>
+<arg>id=email</arg>
+<arg>akram@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.223672" elapsed="0.080900"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:59.305575" level="INFO">Typing text '121' into text field 'id=age'.</msg>
+<arg>id=age</arg>
+<arg>121</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.305575" elapsed="0.069000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:59.375576" level="INFO">Typing text 'Hi' into text field 'id=message'.</msg>
+<arg>id=message</arg>
+<arg>Hi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.375576" elapsed="0.053992"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:59.431569" level="INFO">Clicking button 'css:button[type="submit"]'.</msg>
+<arg>css:button[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.431569" elapsed="0.064268"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=formMessage</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.496899" elapsed="0.017716"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-12T11:27:59.530022" level="INFO">Element 'id=formMessage' contains text 'Invalid age'.</msg>
+<arg>id=formMessage</arg>
+<arg>Invalid age</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.514615" elapsed="0.015407"/>
+</kw>
+<tag>acceptance</tag>
+<tag>server</tag>
+<status status="PASS" start="2025-08-12T11:27:57.390007" elapsed="2.141022"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-08-12T11:27:59.535033" elapsed="4.297969"/>
+</kw>
+<status status="PASS" start="2025-08-12T11:27:54.955432" elapsed="8.877570"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">acceptance</stat>
+<stat pass="1" fail="0" skip="0">happy</stat>
+<stat pass="1" fail="0" skip="0">server</stat>
+</tag>
+<suite>
+<stat name="Form Tests" id="s1" pass="2" fail="0" skip="0">Form Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
