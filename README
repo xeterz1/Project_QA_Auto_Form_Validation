@@ -45,3 +45,7 @@ You can execute the run_tests_all.ps1 script, this will :
 - runs unit (pytest), Selenium (pytest), and Robot tests
 - writes results into allure-results/
 - serves the Allure report in your browser
+
+
+Stack used :
+Python, HTML & CSS, JS, Selenium, Robot Framework, Allure
