@@ -1,37 +1,40 @@
-QA Form Validation — Learning Project
-Why this exists: I built this as a learning project to practice a clean test pyramid and a tiny end-to-end flow. It’s intentionally small and simple.
+What this project does
+Frontend: form.html — HTML5 form (required/type/min) + tiny JS to submit.
 
-What’s inside
-logic/validations.py – Python rules for name, email, age (single source of truth)
+Backend: app.py (FastAPI) — serves the form and calls Python validators.
 
-Unit tests (pytest) – fast checks of those rules
+Business rules: logic/validations.py — name/email/age checks (single source of truth).
 
-form.html – simple HTML5 form with a tiny JS fetch
+What each test layer covers
+Unit tests (pytest) → Backend rules
+File: tests/test_validations.py
 
-FastAPI backend (app.py) – serves the form and calls the Python validators
+Test the Python validators directly (no browser, no server).
 
-Selenium tests (pytest) – a few UI flows (happy path + HTML5-blocked case + one backend-rejected case)
+Fast, exhaustive edge cases: invalid ages, emails, names, types, boundaries.
 
-Robot Framework (optional) – readable acceptance scenarios
+Selenium (pytest) → End-to-end UI
+File: selenium_test/test_form_selenium.py
 
-run_tests_all.ps1 – one command to run everything locally and generate an allure report with all tests.
+Drive a real browser against http://127.0.0.1:8000/.
 
-How it works (super short)
-Browser does HTML5 checks (required, type=email, min=1).
-If invalid → no POST; native browser hint shows.
+Happy path: valid input → POST → backend 200 → green success banner.
 
-If HTML5 passes → JS POSTs to /submit.
-FastAPI calls validations.py and returns:
+Backend reject: input that passes HTML5 but fails server rules (e.g., akram@domain, age=121) → POST → backend 400 → red error banner.
 
-200 → green “submitted successfully”
+HTML5-blocked case: malformed email (e.g., akram_at_example.com) → no POST → browser blocks submit; banner stays unchanged.
 
-400 → red error message from the validator
+Robot Framework → Acceptance scenarios
+File: robot_tests/form_tests.robot
+Business-readable flows (happy path + one invalid).
 
-Example that often passes HTML5 but fails backend: email = "akram@domain"
+Minimal overlap with Selenium; focuses on readable specs.
 
-
-# Install once
-py -m pip install fastapi uvicorn pydantic pytest selenium webdriver-manager robotframework allure-robotframework
-
-# One-liner to run everything (starts server, runs tests, opens Allure)
-.\tools\run_tests_all.ps1
+How the flow works :
+Browser (form.html)
+ └─ click Submit
+    ├─ If HTML5 invalid → NO POST (browser tooltip/outline)
+    └─ If HTML5 valid   → POST /submit (JSON)
+                           FastAPI (app.py) → validations.py
+                             ├─ OK  → 200 → “Form submitted successfully”
+                             └─ ERR → 400 → “Invalid …” (from validator)
