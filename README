@@ -13,7 +13,7 @@ Test the Python validators directly (no browser, no server).
 
 Fast, exhaustive edge cases: invalid ages, emails, names, types, boundaries.
 
-Selenium (pytest) → End-to-end UI
+Selenium (pytest) → E2E UI
 File: selenium_test/test_form_selenium.py
 
 Drive a real browser against http://127.0.0.1:8000/.
@@ -40,6 +40,7 @@ Browser (form.html)
                              └─ ERR → 400 → “Invalid …” (from validator)
 
 How to use the repo :
+First, install once the libraries using the following command : py -m pip install fastapi uvicorn pydantic pytest selenium webdriver-manager robotframework allure-robotframework
 You can execute the run_tests_all.ps1 script, this will :
 - starts the FastAPI backend on http://127.0.0.1:8000/
 - runs unit (pytest), Selenium (pytest), and Robot tests
